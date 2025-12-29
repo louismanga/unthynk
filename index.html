@@ -59,132 +59,165 @@
         .delay-400 { transition-delay: 0.4s; }
         .delay-500 { transition-delay: 0.5s; }
         .delay-600 { transition-delay: 0.6s; }
+
+        /* Menu mobile */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.active {
+            max-height: 300px;
+        }
     </style>
 </head>
 
 <body class="bg-white">
 
 <!-- Navigation -->
-<nav class="flex items-center justify-between px-6 py-4 border-b">
-    <div class="flex items-center gap-3">
-        <div class="w-10 h-10 flex items-center justify-center">
-            <img src="logo.svg" alt="Logo Unthynk" class="w-10 h-10">
+<nav class="border-b">
+    <div class="flex items-center justify-between px-4 sm:px-6 py-4">
+        <div class="flex items-center gap-2 sm:gap-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
+                <img src="logo.svg" alt="Logo Unthynk" class="w-8 h-8 sm:w-10 sm:h-10">
+            </div>
+            <span class="text-xl sm:text-2xl font-semibold">Unthynk</span>
         </div>
-        <span class="text-2xl font-semibold">Unthynk</span>
+
+        <!-- Menu desktop -->
+        <div class="hidden md:flex items-center gap-6 lg:gap-8">
+            <a href="#service" class="text-gray-700 hover:text-black transition">Services</a>
+            <a href="#" class="text-gray-700 hover:text-black transition">Documentation</a>
+            <a href="#tarifs" class="text-gray-700 hover:text-black transition">Tarifs</a>
+            <a href="#contact" class="bg-black text-white px-4 lg:px-6 py-2 rounded-lg hover:bg-gray-800 transition">
+                Nous contacter
+            </a>
+        </div>
+
+        <!-- Bouton hamburger mobile -->
+        <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
     </div>
 
-    <div class="flex items-center gap-8">
-        <a href="#service" class="text-gray-700 hover:text-black">Services</a>
-        <a href="#" class="text-gray-700 hover:text-black">Documentation</a>
-        <a href="#tarifs" class="text-gray-700 hover:text-black">Tarifs</a>
-        <button class="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition">
-           <a href="#contact">Nous contacter</a>
-        </button>
+    <!-- Menu mobile -->
+    <div id="mobile-menu" class="mobile-menu md:hidden border-t">
+        <div class="flex flex-col px-4 py-4 space-y-3">
+            <a href="#service" class="text-gray-700 hover:text-black transition py-2">Services</a>
+            <a href="#" class="text-gray-700 hover:text-black transition py-2">Documentation</a>
+            <a href="#tarifs" class="text-gray-700 hover:text-black transition py-2">Tarifs</a>
+            <a href="#contact" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition text-center">
+                Nous contacter
+            </a>
+        </div>
     </div>
 </nav>
 
 <!-- Hero -->
-<main class="max-w-4xl mx-auto px-6 pt-24 pb-4">
-    <div class="space-y-8">
-        <p class="text-sm font-semibold text-gray-600 tracking-wider uppercase fade-in">
+<main class="max-w-4xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 md:pt-24 pb-4">
+    <div class="space-y-6 sm:space-y-8">
+        <p class="text-xs sm:text-sm font-semibold text-gray-600 tracking-wider uppercase fade-in">
             CLOUD • SELF-HOST • AUTOMATION
         </p>
 
-        <h1 class="text-6xl font-bold leading-tight fade-in delay-100">
-            Des services cloud simples,<br>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight fade-in delay-100">
+            Des services cloud simples,<br class="hidden sm:block">
             flexibles et maîtrisés
         </h1>
 
-        <p class="text-xl text-gray-600 max-w-2xl fade-in delay-200">
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 fade-in delay-200">
             <b>Unthynk</b> vous permet de déployer rapidement des applications web auto-hébergées,
             lancer des newsletters personnalisées gratuitement et louer des instances cloud
             pour des besoins ponctuels.
         </p>
 
-        <div class="flex items-center gap-4 pt-4 fade-in delay-300">
-            <button class="bg-black text-white px-8 py-4 rounded-lg hover:bg-gray-800 transition flex items-center gap-2 text-lg font-medium">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-4 fade-in delay-300">
+            <button class="bg-black text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-gray-800 transition flex items-center justify-center gap-2 text-base sm:text-lg font-medium">
                 Démarrer gratuitement
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
             </button>
 
-            <button class="border-2 border-gray-300 px-6 py-4 rounded-lg hover:border-gray-400 transition text-lg font-medium">
+            <button class="border-2 border-gray-300 px-6 py-3 sm:py-4 rounded-lg hover:border-gray-400 transition text-base sm:text-lg font-medium">
                 Voir la documentation
             </button>
         </div>
 
-        <p class="text-sm text-gray-500 fade-in delay-400">
+        <p class="text-xs sm:text-sm text-gray-500 fade-in delay-400">
             Aucune carte bancaire requise
         </p>
     </div>
 </main>
 
 <!-- Services -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-16 p-8 m-12 mt-8" id="service">
-    <div class="space-y-4 fade-in">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 px-4 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20" id="service">
+    <div class="space-y-3 sm:space-y-4 fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 1 0 0-6m-16.5-3a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3m-19.5 0a4.5 4.5 0 0 1 .9-2.7L5.737 5.1a3.375 3.375 0 0 1 2.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 0 1 .9 2.7m0 0a3 3 0 0 1-3 3m0 3h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Zm-3 6h.008v.008h-.008v-.008Zm0-6h.008v.008h-.008v-.008Z" />
         </svg>
-        <h3 class="text-2xl font-bold">Applications auto-hébergées</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Applications auto-hébergées</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Louez des instances prêtes à l'emploi pour héberger vos applications web
             comme n8n, outils internes, dashboards ou services métiers.
             Vous gardez le contrôle total.
         </p>
     </div>
 
-    <div class="space-y-4 fade-in delay-100">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+    <div class="space-y-3 sm:space-y-4 fade-in delay-100">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
         </svg>
-        <h3 class="text-2xl font-bold">Newsletter personnalisable</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Newsletter personnalisable</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Créez et gérez gratuitement vos newsletters avec une infrastructure fiable,
             sans dépendre de plateformes fermées. Personnalisation et export des données inclus.
         </p>
     </div>
 
-    <div class="space-y-4 fade-in delay-200">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+    <div class="space-y-3 sm:space-y-4 fade-in delay-200">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
         </svg>
-        <h3 class="text-2xl font-bold">Instances cloud courte durée</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Instances cloud courte durée</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Besoin d'un serveur pour quelques heures ou quelques jours ?
             Unthynk propose des instances temporaires idéales pour tests,
             démonstrations, automatisations ou événements.
         </p>
     </div>
 
-    <div class="space-y-4 fade-in delay-300">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+    <div class="space-y-3 sm:space-y-4 fade-in delay-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
         </svg>
-        <h3 class="text-2xl font-bold">Infrastructure sécurisée</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Infrastructure sécurisée</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Isolation des environnements, accès sécurisé, sauvegardes et supervision
             pour garantir la fiabilité de vos services.
         </p>
     </div>
 
-    <div class="space-y-4 fade-in delay-400">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+    <div class="space-y-3 sm:space-y-4 fade-in delay-400">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
         </svg>
-        <h3 class="text-2xl font-bold">Déploiement rapide</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Déploiement rapide</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Lancez une instance ou une application en quelques minutes,
             sans configuration complexe ni dépendances inutiles.
         </p>
     </div>
 
-    <div class="space-y-4 fade-in delay-500">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-8">
+    <div class="space-y-3 sm:space-y-4 fade-in delay-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
         </svg>
-        <h3 class="text-2xl font-bold">Pensé pour les makers</h3>
-        <p class="text-gray-600">
+        <h3 class="text-xl sm:text-2xl font-bold">Pensé pour les makers</h3>
+        <p class="text-sm sm:text-base text-gray-600">
             Développeurs, indépendants, startups ou équipes techniques :
             Unthynk s'adapte à vos workflows existants.
         </p>
@@ -192,48 +225,48 @@
 </div>
 
 <!-- Pricing -->
-<section class="max-w-7xl mx-auto px-3 py-20" id="tarifs">
-    <div class="text-center mb-4 fade-in">
-        <h1 class="text-4xl font-bold mb-2">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20" id="tarifs">
+    <div class="text-center mb-8 sm:mb-12 fade-in">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
             Tarification simple et transparente
         </h1>
-        <p class="text-gray-600 text-lg">
+        <p class="text-gray-600 text-base sm:text-lg">
             Payez uniquement ce que vous utilisez
         </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="border rounded-2xl p-6 m-32 mt-8 shadow-sm hover:shadow-md transition scale-in">
-            <h2 class="text-2xl font-semibold mb-3">Offre Flexible</h2>
-            <p class="text-gray-600 mb-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div class="border rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition scale-in">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-3">Offre Flexible</h2>
+            <p class="text-gray-600 mb-5 text-sm sm:text-base">
                 Idéal pour les projets personnels, tests et automatisations.
             </p>
-            <div class="mb-5">
-                <span class="text-4xl font-bold">Gratuit</span>
-                <span class="text-gray-500 ml-2">selon usage</span>
+            <div class="mb-6">
+                <span class="text-3xl sm:text-4xl font-bold">Gratuit</span>
+                <span class="text-gray-500 ml-2 text-sm sm:text-base">selon usage</span>
             </div>
-            <button class="w-full bg-black text-white py-3 rounded-lg font-medium mb-5">
+            <button class="w-full bg-black text-white py-3 sm:py-4 rounded-lg font-medium mb-6 hover:bg-gray-800 transition text-sm sm:text-base">
                 Commencer
             </button>
-            <ul class="space-y-3 text-gray-700">
+            <ul class="space-y-3 text-gray-700 text-sm sm:text-base">
                 <li>✓ Newsletter gratuite</li>
                 <li>✓ Instances courte durée</li>
                 <li>✓ Support communautaire</li>
             </ul>
         </div>
 
-        <div class="border rounded-2xl p-6 m-32 mt-8 shadow-sm hover:shadow-md transition scale-in delay-200">
-            <h2 class="text-2xl font-semibold mb-3">Offre Pro</h2>
-            <p class="text-gray-600 mb-4">
+        <div class="border rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition scale-in delay-200">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-3">Offre Pro</h2>
+            <p class="text-gray-600 mb-5 text-sm sm:text-base">
                 Pour les équipes et entreprises avec des besoins spécifiques.
             </p>
-            <div class="mb-5">
-                <span class="text-4xl font-bold">Sur devis</span>
+            <div class="mb-6">
+                <span class="text-3xl sm:text-4xl font-bold">Sur devis</span>
             </div>
-            <button class="w-full border border-black py-3 rounded-lg font-medium mb-5">
+            <button class="w-full border-2 border-black py-3 sm:py-4 rounded-lg font-medium mb-6 hover:bg-gray-50 transition text-sm sm:text-base">
                 Contacter l'équipe
             </button>
-            <ul class="space-y-3 text-gray-700">
+            <ul class="space-y-3 text-gray-700 text-sm sm:text-base">
                 <li>✓ Instances dédiées</li>
                 <li>✓ Support prioritaire</li>
                 <li>✓ SLA & personnalisation</li>
@@ -243,32 +276,83 @@
 </section>
 
 <footer class="border-t bg-white fade-in" id="contact">
-    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-3">
-            <img src="logo.svg" alt="Logo Unthynk" class="w-10 h-10">
-            <span class="text-xl font-semibold">Unthynk</span>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+        <!-- Mobile layout -->
+        <div class="flex flex-col gap-6 md:hidden">
+            <div class="flex items-center justify-center gap-3">
+                <img src="logo.svg" alt="Logo Unthynk" class="w-8 h-8">
+                <span class="text-xl font-semibold">Unthynk</span>
+            </div>
+            
+            <div class="flex flex-col items-center gap-3 text-center">
+                <a href="https://wa.me/237698202079" target="_blank" class="text-base font-semibold hover:text-gray-400">
+                    +237 698 602 079
+                </a>
+                <a href="mailto:info@unthynk.site" class="text-base font-semibold hover:text-gray-400">
+                    info@unthynk.site
+                </a>
+            </div>
+
+            <div class="flex items-center justify-center gap-5">
+                <a href="https://www.linkedin.com/company/unthynk" target="_blank" aria-label="LinkedIn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt="LinkedIn" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
+                </a>
+                <a href="https://wa.me/237698202079" target="_blank" aria-label="WhatsApp">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-500 text-center">
+                © 2025 Unthynk – Tous droits réservés
+            </p>
         </div>
-        <p class="text-sm text-gray-500 text-center">
-            © 2025 Unthynk – Tous droits réservés
-        </p>
-        <div class="flex items-center gap-5">
-            <a href="https://wa.me/237698202079" target="_blank" aria-label="WhatsApp">
-                <b class="text-lg hover:text-gray-400">+237 698 602 079</b>
-            </a>
-            <a href="mailto:info@unthynk.site" aria-label="Email">
-                <b class="text-lg hover:text-gray-400">info@unthynk.site</b>
-            </a>
-            <a href="https://www.linkedin.com/company/unthynk" target="_blank" aria-label="LinkedIn">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt="LinkedIn" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
-            </a>
-            <a href="https://wa.me/237698202079" target="_blank" aria-label="WhatsApp">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
-            </a>
+
+        <!-- Desktop layout -->
+        <div class="hidden md:flex items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <img src="logo.svg" alt="Logo Unthynk" class="w-10 h-10">
+                <span class="text-xl font-semibold">Unthynk</span>
+            </div>
+            
+            <p class="text-sm text-gray-500 text-center">
+                © 2025 Unthynk – Tous droits réservés
+            </p>
+            
+            <div class="flex items-center gap-5">
+                <a href="https://wa.me/237698202079" target="_blank" class="text-base lg:text-lg font-semibold hover:text-gray-400">
+                    +237 698 602 079
+                </a>
+                <a href="mailto:info@unthynk.site" class="text-base lg:text-lg font-semibold hover:text-gray-400">
+                    info@unthynk.site
+                </a>
+                <a href="https://www.linkedin.com/company/unthynk" target="_blank" aria-label="LinkedIn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt="LinkedIn" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
+                </a>
+                <a href="https://wa.me/237698202079" target="_blank" aria-label="WhatsApp">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384023.png" alt="WhatsApp" class="w-6 h-6 opacity-80 hover:opacity-100 transition" />
+                </a>
+            </div>
         </div>
     </div>
 </footer>
 
 <script>
+// Menu mobile toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+});
+
+// Fermer le menu mobile quand on clique sur un lien
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+    });
+});
+
 // Fonction pour observer les éléments et les animer au scroll
 function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
@@ -282,7 +366,6 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    // Observer tous les éléments avec les classes d'animation
     const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
     animatedElements.forEach(el => observer.observe(el));
 }
